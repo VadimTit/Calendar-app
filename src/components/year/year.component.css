@@ -1,0 +1,35 @@
+.year-header {
+  display: flex;
+  justify-content: space-between;
+  color: #fff;
+  padding: 20px;
+}
+.year-title {
+  font-size: 8vh;
+  margin: 0;
+  background-image: linear-gradient(to right, #00e0d0 0%, #4aa3cc 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.buttonYear {
+  outline: none;
+  background-color: transparent;
+  border:none;
+  color: #fff;
+  font-size: 7vh;
+  width: 10vh;
+  box-shadow: 1px 0px 0px 2px #00e0d0;;
+  border-radius: 7vh;
+  background-image: linear-gradient(to right, #00e0d0 0%, #4aa3cc 100%);
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+}
+.year-main {
+  display: flex;
+  flex-wrap: wrap;
+}
+.year-main > * {
+  min-width: 33.3%;
+  width: 33.3%;
+  box-sizing: border-box;
+}

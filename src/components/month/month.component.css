@@ -1,0 +1,10 @@
+.month-header {
+  display: flex;
+  justify-content: center;
+  font-size: 3vw;
+  padding: 1vw;
+  background: rgb(43,212,198);
+  background: linear-gradient(336deg, rgba(43,212,198,1) 38%, rgba(88,174,225,0.989233193277311) 49%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
