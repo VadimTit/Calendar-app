@@ -1,6 +1,6 @@
 .year-header {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
   color: #fff;
   padding: 20px;
 }

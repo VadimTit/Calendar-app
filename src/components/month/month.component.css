@@ -8,3 +8,15 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+.month-main {
+  display: flex;
+  flex-wrap: wrap;
+}
+.day {
+  width: 13%;
+  font-size: 1.5vw;
+  text-align: center;
+}
+.month {
+  padding: 1vh 2vw;
+}
