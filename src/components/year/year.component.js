@@ -1,43 +1,29 @@
 import './year.component.css';
 import React, { Component } from 'react';
 import { Month } from '..'
+import { Link } from 'react-router-dom';
 
 const currentYear = new Date().getFullYear();
 
 export default class YearComponent extends Component {
-  state = this.calendarYear(currentYear);
-
-  calendarYear(year) {
-    return {
-      currentYear: year,
-      months: Array(12).fill(null).map((x, index) => {
-        return {
-          number: index,
-          startDate: new Date(year, index, 1),
-        }
-      })
-    }
-  }
-
-  nextYearHandler = () => {
-    this.setState(this.calendarYear(this.state.currentYear + 1));
-  }
-  previousYearHandler = () => {
-    this.setState(this.calendarYear(this.state.currentYear - 1));
-  }
-
   render() {
 
+    const months = Array(12).fill(null).map((x, index) => new Date(this.props.year, index, 1)); 
+    
     return (
       <div className="year">
         <div className="year-header">
-          <button type="button" className="buttonYear" onClick={this.previousYearHandler}>{'<'}</button>
-          <h1 className="year-title">{this.state.currentYear}</h1>
-          <button type="button" className="buttonYear" onClick={this.nextYearHandler}>{'>'}</button>
+          <Link to={`/year/${this.props.year - 1}`}>
+            <button type="button" className="buttonYear">{'☚'}</button>
+          </Link>
+          <h1 className="year-title">{this.props.year}</h1>
+          <Link to={`/year/${Number(this.props.year) + 1}`}>
+            <button type="button" className="buttonYear">{'☛'}</button>
+          </Link>
         </div>
         <div className="year-main">
-          {this.state.months.map(month => (
-            <Month startDate={month.startDate} />
+          {months.map(startDate => (
+            <Month className=" " key={startDate.toISOString()} startDate={startDate} />
           ))}
         </div>
       </div>

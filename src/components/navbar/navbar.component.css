@@ -1,0 +1,10 @@
+.navbar {
+  display:flex;
+  justify-content: space-evenly;
+}
+
+.navbar > * {
+  color: aqua;
+  font-size: 3vw;
+  text-decoration: none;
+}

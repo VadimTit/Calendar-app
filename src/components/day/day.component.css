@@ -1,0 +1,15 @@
+.month-single-page .day {
+  font-size: 4.5vw;
+}
+
+.day {
+  width: 13%;
+  font-size: 1.5vw;
+  text-align: center;
+}
+
+.day.today {
+  background-color: aquamarine;
+  color: black;
+  border-radius: 50%;
+}
