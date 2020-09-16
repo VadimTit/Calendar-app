@@ -36,7 +36,7 @@ export default class MonthComponent extends Component {
         </div>
         <div className="month-main">
           {dayOfWeek.map((day, index) => <div key={index} className="day day-title">{day}</div>)}
-          {days.map((day, index)=> <Day key={index} date={day}/>)}
+          {days.map((day, index)=> <Day key={index} date={day} todos={this.props.todos}/>)}
         </div>
       </div>
     );

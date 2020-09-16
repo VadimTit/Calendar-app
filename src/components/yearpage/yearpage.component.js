@@ -1,9 +1,8 @@
-import './year.component.css';
+import './yearpage.component.css';
 import React, { Component } from 'react';
 import { Month } from '..'
 import { Link } from 'react-router-dom';
 
-const currentYear = new Date().getFullYear();
 
 export default class YearComponent extends Component {
   render() {
@@ -23,7 +22,7 @@ export default class YearComponent extends Component {
         </div>
         <div className="year-main">
           {months.map(startDate => (
-            <Month className=" " key={startDate.toISOString()} startDate={startDate} />
+            <Month className=" " key={startDate.toISOString()} startDate={startDate} todos={this.props.todos}/>
           ))}
         </div>
       </div>
