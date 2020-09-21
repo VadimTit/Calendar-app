@@ -1,44 +1,97 @@
+import { find, pick } from 'lodash';
 import React, { Component } from 'react'
+import Todo from '../../models/todo.model';
+import { todoService } from '../../services/todo.service';
 import './dayPage.component.css'
 
 export default class DayPageComponent extends Component {
   state = {
-    title: 'sample',
-    description: 'sample description',
+    currentTodo: null,
+    isFormVisible: false,
   }
 
   handleTitleChange = (event) => {
-    this.setState({ title: event.target.value });
+    this.setState({ 
+      currentTodo: {
+        ...this.state.currentTodo,
+        title: event.target.value,
+      }
+    });
   }
 
   handleDescriptionChange = (event) => {
-    this.setState({ description: event.target.value });
+    this.setState({ 
+      currentTodo: {
+        ...this.state.currentTodo,
+        description: event.target.value,
+      }
+    });
   }
-  /**
-   * 
-   * @param {import('react').SyntheticEvent} event 
-   */
+ 
   handleSubmit = (event) => {
     event.preventDefault();
-    console.log(this.state);
+    todoService.upsertTodo(pick(this.props, ['year', 'month', 'day']), this.state.currentTodo)
+    this.setState({
+      currentTodo: null,
+      isFormVisible: false,
+    })
   }
 
+  handleTodoClick = (event) => {
+    const id = event.currentTarget.dataset.id;
+    const currentTodo = find(this.props.todos, { id });
+    this.setState({
+      currentTodo,
+      isFormVisible: true,
+    })
+  }
+
+  handleAddButtonClick  = () => {
+    const currentTodo = new Todo();
+    this.setState({
+      currentTodo,
+      isFormVisible: true,
+    })
+  }
   render() {
+    const { year, month, day } = this.props;
+
+    const today = new Date(year, month - 1, day);
+    const title = today.toLocaleString('ru', { weekday: 'long', day: 'numeric', month: 'long' });
+
+
     return (
       <div className="day-page">
-        <form onSubmit={this.handleSubmit}>
-          <input type="text"
-            name="title"
-            value={this.state.title}
-            onChange={this.handleTitleChange}
-          />
-          <input type="text"
-            name="description"
-            value={this.state.description}
-            onChange={this.handleDescriptionChange}
-          />
-          <input type="submit" value="Отправить" />
-        </form>
+        <h2>{title}</h2>
+
+        {this.props.todos.map(todo => (
+          <div 
+            key={todo.id} 
+            className="todo-item"
+            onClick={this.handleTodoClick}
+            data-id={todo.id}
+          >
+            <div>{todo.title}</div>
+            <div>{todo.description}</div>
+          </div>
+        ))}
+
+        { this.state.isFormVisible ?
+          <form onSubmit={this.handleSubmit}>
+            <input 
+              type="text"
+              name="title"
+              value={this.state.currentTodo.title}
+              onChange={this.handleTitleChange}
+            />
+            <input 
+              type="text"
+              name="description"
+              value={this.state.currentTodo.description}
+              onChange={this.handleDescriptionChange}
+            />
+            <input type="submit" value="Отправить" />
+          </form> : <button onClick={this.handleAddButtonClick}>Add</button>}
       </div>
     )
   }

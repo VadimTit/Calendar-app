@@ -15,3 +15,8 @@
   color: black;
   border-radius: 50%;
 }
+
+.day.has-todos {
+  background-color: red;
+  border-radius: 50%;
+}
