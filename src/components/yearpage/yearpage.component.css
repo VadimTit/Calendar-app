@@ -1,6 +1,6 @@
 .year-header {
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
   color: #fff;
   padding: 20px;
 }
@@ -11,7 +11,7 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
-.buttonYear {
+.button-year {
   outline: none;
   background-color: transparent;
   border:none;
@@ -22,6 +22,9 @@
   background-image: linear-gradient(to right, #00e0d0 0%, #4aa3cc 100%);
   -webkit-text-fill-color: transparent;
   -webkit-background-clip: text;
+}
+.button-year:hover {
+  background-color: red;
 }
 .year-main {
   display: flex;

@@ -8,7 +8,7 @@ export default class DayComponent extends Component {
   
   render() {
     const { year, month, day} = this.props;
-    const today = new Date(year, month, day);
+    const today = new Date(year, month - 1, day);
 
     if (!day) {
       return (<div className="day"> </div>)

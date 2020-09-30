@@ -10,13 +10,78 @@
   color: #fff;
 }
 
-.day.today {
-  background-color: aquamarine;
-  color: black;
-  border-radius: 50%;
+a > .today {
+  font-weight: 700;
+  color:red;
 }
 
 .day.has-todos {
-  background-color: red;
+  background: rgb(43,212,198);
+  background: linear-gradient(336deg, rgba(43,212,198,1) 38%, rgba(88,174,225,0.989233193277311) 49%);
   border-radius: 50%;
+}
+
+.day.day-title {
+  color: aquamarine;
+}
+.day-page {
+  text-align: center;
+}
+.day-page-title {
+  color: aquamarine;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+.btn-todo {
+  padding: 10px 20px;
+  border-color: rgba(144,185,107,.5);
+  font-size: 18px;
+  color: aqua;
+  border:1px solid aqua;
+  background: none;
+  border-radius: 5px;
+}
+
+.btn-todo:hover {
+  color: white;
+  background-color: aqua;
+}
+
+.day-page > form > input {
+  margin-bottom: 10px;
+  background-color: inherit;
+  border: 2px solid aqua;
+  padding: 10px;
+  outline: none;
+  color: aquamarine;
+  font-size: 15px;
+  border-radius: 5px;
+}
+
+.day-page > form {
+  display: flex;
+  flex-direction: column;
+  width: 725px;
+  margin: 0 auto;
+}
+
+.day-page .todo-item {
+  text-align: left;
+  margin-bottom: 10px;
+  border: 2px solid aqua;
+  padding: 10px;
+  border-radius: 5px;
+  color: aquamarine;
+}
+
+.todo-item {
+  display: flex;
+  flex-direction: column;
+  max-width: 700px;
+  margin: 0 auto;
+  
+}
+
+input[type="text"]::placeholder { 
+  color: grey; 
 }

@@ -14,11 +14,11 @@ export default class YearComponent extends Component {
       <div className="year">
         <div className="year-header">
           <Link to={`/year/${this.props.year - 1}`}>
-            <button type="button" className="buttonYear">{'☚'}</button>
+            <button type="button" className="button-year">{'❮'}</button>
           </Link>
           <h1 className="year-title">{this.props.year}</h1>
           <Link to={`/year/${Number(this.props.year) + 1}`}>
-            <button type="button" className="buttonYear">{'☛'}</button>
+            <button type="button" className="button-year">{'❯'}</button>
           </Link>
         </div>
         <div className="year-main">

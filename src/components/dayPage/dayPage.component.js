@@ -37,6 +37,16 @@ export default class DayPageComponent extends Component {
     })
   }
 
+  handleBtnDelete = (event) => {
+    event.preventDefault();
+    todoService.deleteTodo(pick(this.props, ['year', 'month', 'day']), this.state.currentTodo);
+    this.setState({
+      currentTodo: null,
+      isFormVisible: false,
+    })
+    
+  }
+  
   handleTodoClick = (event) => {
     const id = event.currentTarget.dataset.id;
     const currentTodo = find(this.props.todos, { id });
@@ -62,7 +72,7 @@ export default class DayPageComponent extends Component {
 
     return (
       <div className="day-page">
-        <h2>{title}</h2>
+        <h2 className="day-page-title">{title}</h2>
 
         {this.props.todos.map(todo => (
           <div 
@@ -81,17 +91,23 @@ export default class DayPageComponent extends Component {
             <input 
               type="text"
               name="title"
+              placeholder="Title"
               value={this.state.currentTodo.title}
               onChange={this.handleTitleChange}
             />
             <input 
               type="text"
               name="description"
+              placeholder="Description"
               value={this.state.currentTodo.description}
               onChange={this.handleDescriptionChange}
             />
-            <input type="submit" value="Отправить" />
-          </form> : <button onClick={this.handleAddButtonClick}>Add</button>}
+         
+            <div className='change-todo'>
+                <input className="submit" type="submit" value='Submit'/>
+                <button onClick={this.handleBtnDelete} className='todo-delete'>delete</button>
+                </div>
+          </form> : <button className="btn-todo"onClick={this.handleAddButtonClick}>Add Todo</button>}
       </div>
     )
   }

@@ -5,3 +5,31 @@
 .todo-item {
   border: 1px solid purple;
 }
+.day:nth-child(7n) {
+  color:#ff0094;
+}
+.day:nth-child(7n+1) {
+  color:#ff0094;
+}
+.todo-delete {
+  padding: 10px 20px;
+    border-color: rgba(144,185,107,.5);
+    font-size: 18px;
+    color: aqua;
+    border: 1px solid aqua;
+    background: none;
+    border-radius: 5px;
+}
+.change-todo {
+  display: flex;
+  justify-content: space-evenly;
+}
+.change-todo .submit {
+  padding: 10px 20px;
+    border-color: rgba(144,185,107,.5);
+    font-size: 18px;
+    color: aqua;
+    border: 1px solid aqua;
+    background: none;
+    border-radius: 5px;
+}

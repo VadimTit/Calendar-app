@@ -17,7 +17,11 @@
   flex-wrap: wrap;
 }
 
-
 .month {
   padding: 1vh 2vw;
 }
+.month-page .month {
+  width: 30%;
+  margin: auto;
+}
+
