@@ -13,6 +13,8 @@
 a > .today {
   font-weight: 700;
   color:red;
+  background-color: greenyellow;
+  border-radius: 45%;
 }
 
 .day.has-todos {
